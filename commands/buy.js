@@ -165,7 +165,7 @@ ${emoji1} Total Price: **${totalPrice}** ${wlEmoji}\n\n**Thanks For Purchasing O
           const delayBeforeWarning = 10000;
           setTimeout(() => {
             if (message.channel) {
-              message.channel.send(`This channel will remain open. Please check your DM!`);
+              console.log('Successfully sent purchase confirmation message.');
             }
           }, 1000);
         })
