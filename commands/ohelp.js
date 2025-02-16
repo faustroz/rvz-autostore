@@ -6,7 +6,7 @@ module.exports = {
   description: 'List available commands',
   execute(message, args) {
     const ohelpEmbed = new EmbedBuilder()
-      .setColor('Random')
+      .setColor('#007fff')
       .setTitle('Available Commands')
       .setDescription(`**Public Commands**
 ${emoji1} **${prefix}help**

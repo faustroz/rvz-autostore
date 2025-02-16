@@ -6,7 +6,7 @@ module.exports = {
   description: 'List available commands',
   execute(message, args) {
     const ohelpEmbed = new EmbedBuilder()
-      .setColor('Random')
+      .setColor('#007fff')
       .setTitle('Available Commands')
       .addFields({ name: 'Public Commands', value: `${emoji1} **${prefix}help**
 ${emoji1} **${prefix}set** <GrowID>

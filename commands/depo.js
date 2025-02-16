@@ -19,7 +19,7 @@ module.exports = {
 
       // Create an embed to display depo information
       const depoEmbed = new EmbedBuilder()
-        .setColor('Random')
+        .setColor('#007fff')
         .setTitle('Depo Information')
         .setDescription(`${emoji3}  World: **${depoInfo.depoWorld}**
 ${emoji1}  Owner: **${depoInfo.worldOwner}**

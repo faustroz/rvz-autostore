@@ -32,7 +32,7 @@ module.exports = {
             });
             newUser.save();
             const depoEmbed = new EmbedBuilder()
-        .setColor('Random')
+        .setColor('#007fff')
         .setDescription(`*_Welcome! Your GrowID is now set to_* **${growID}**`)
 
    message.reply({ embeds: [depoEmbed] });
