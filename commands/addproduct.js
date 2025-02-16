@@ -16,7 +16,8 @@ module.exports = {
       return message.reply(`Usage: ${prefix}addproduct <name> <code> <price> <type [yes, no ,df, "yes" if script, "no" if not, and "df" if dirtfarm]> <mention-role>`);
     }
 
-    const [name, code, price, type, roleToadd] = args;
+    let [name, code, price, type, roleToadd] = args;
+    name = name.replace(/\./g, ' ');
 
     try {
       // Check if the product code already exists in the database
