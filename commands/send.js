@@ -161,7 +161,7 @@ module.exports = {
   const embedDM = new EmbedBuilder()
     .setColor('#007fff')
     .setTitle('Purchase Successful')
-    .setDescription(`You have purchased **${quantity} ${product.name.replace(/"/g, '')}** worth **${totalPrice}${wlEmoji}**\n\n**Don't forget to give reps.**\n`)
+    .setDescription(`**You have purchased:** ${product.name.replace(/"/g, '')}  **Amount:** ${quantity}  **Total Price:** ${totalPrice}${wlEmoji}  ✅ **Don't forget to give reps!**`)
     .setImage(imageURL)
     .setTimestamp();
   await message.author.send({ embeds: [embedDM], files: [fileName] });
