@@ -12,7 +12,7 @@ const sendStockMessage = async (message) => {
 
     const stockInfoEmbed = new EmbedBuilder()
       .setColor('#007fff')
-      .setTitle("<:18220crown:1340507514336182364> RVZ Realtime's Stock <:18220crown:1340507514336182364>")
+      .setTitle("RVZ Realtime's Stock")
       .setImage(imageURL)
       .setTimestamp()
     .setFooter({ text: "Rendezvous's Store" });
