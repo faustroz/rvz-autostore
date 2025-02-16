@@ -108,7 +108,7 @@ module.exports = {
           const embedDM = new EmbedBuilder()
             .setColor('#007fff')
             .setTitle('Purchase Successful')
-            .setDescription(`**You have purchased:** ${product.name.replace(/"/g, '')}  **Amount:** ${quantity}  **Total Price:** ${totalPrice}${wlEmoji}  ✅ **Don't forget to give reps!**`)
+            .setDescription(`You have purchased: ${product.name.replace(/"/g, '')}\nAmount: ${quantity}\nTotal Price: ${totalPrice}${wlEmoji}\n✅ Don't forget to give reps!`)
             .setImage(imageURL)
             .setTimestamp();
 
@@ -218,7 +218,7 @@ async function handleYesType(user, message, product, quantity) {
   const embedDMs = new EmbedBuilder()
     .setColor('#007fff')
     .setTitle('Purchase Successful')
-    .setDescription(`**You have purchased:** ${product.name.replace(/"/g, '')}  **Amount:** ${quantity}  **Total Price:** ${totalPrice}${wlEmoji}  ✅ **Don't forget to give reps!**`)
+    .setDescription(`You have purchased: ${product.name.replace(/"/g, '')}\nAmount: ${quantity}\nTotal Price: ${totalPrice}${wlEmoji}\n✅ Don't forget to give reps!`)
     .setImage(imageURL)
     .setTimestamp();
   await message.author.send({ embeds: [embedDMs], files: [fileNames] });
