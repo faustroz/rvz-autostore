@@ -30,9 +30,9 @@ module.exports = {
     }
 
     // Check if the channel where the command was used is a ticket channel
-    if (!message.channel.name.startsWith('ticket-')) {
-      return message.reply('This command can only be used in a ticket channel.');
-    }
+    // if (!message.channel.name.startsWith('ticket-')) {
+    //   return message.reply('This command can only be used in a ticket channel.');
+    // }
 
     // Check if there's a GrowID provided in the command
     if (args.length < 2) {
