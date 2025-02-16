@@ -146,7 +146,7 @@ module.exports = {
         .setDescription(`${emoji1} Buyer: <@${message.author.id}>
 ${emoji1} Product: **${product.name.replace(/"/g, '')}**
 ${emoji1} Code: **${product.code}**
-${emoji1} Total Price: **${totalPrice}** ${wlEmoji}\n\n**Thanks For Purchasing Our Product(s)**`)
+${emoji1} Total Price: **${totalPrice}** ${wlEmoji}`)
         .setImage(imageURL)
         .setTimestamp();
 
