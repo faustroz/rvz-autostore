@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const Product = require('../models/product');
 const { thumbnailURL, imageURL, wlEmoji, emoji1, emoji2 } = require('../config.json');
 
@@ -15,33 +15,64 @@ const sendStockMessage = async (message) => {
       .setTitle("RVZ Realtime's Stock")
       .setImage(imageURL)
       .setTimestamp()
-    .setFooter({ text: "Rendezvous's Store" });
+      .setFooter({ text: "Rendezvous's Store" });
 
     products.forEach((product) => {
       stockInfoEmbed.addFields(
         {
-          name: `${emoji2}  ${product.name}`, // Product name
-          value: `${emoji1}  Code: **${product.code}**\n${emoji1}  Stock: **${product.stock}**\n${emoji1}  Price: **${product.price}** ${wlEmoji}\n------------------------------------------\n`,
+          name: `${emoji2}  ${product.name}`,
+          value: `${emoji1} Code: **${product.code}**\n${emoji1}    Stock: **${product.stock}**\n${emoji1}  Price: **${product.price}** ${wlEmoji}\n―――――――――――――\n`,
           inline: false,
         }
       );
     });
 
+    // Create a refresh button
+    const buyButton = new ButtonBuilder()
+    .setCustomId('buy_button')
+    .setLabel('Buy')
+    .setEmoji('🛒') // Shopping cart emoji
+    .setStyle(ButtonStyle.Success);
+  
+    const setGrowIDButton = new ButtonBuilder()
+    .setCustomId('set_growid_button')
+    .setLabel('Set GrowID')
+    .setEmoji('🌱') // Seedling emoji to symbolize growth
+    .setStyle(ButtonStyle.Success);
+  
+    const balanceButton = new ButtonBuilder()
+    .setCustomId('balance_button')
+    .setLabel('Balance')
+    .setEmoji(`${wlEmoji}`) // Money bag emoji for balance
+    .setStyle(ButtonStyle.Success);
+  
+    const depositButton = new ButtonBuilder()
+    .setCustomId('deposit_button')
+    .setLabel('Deposit')
+    .setEmoji('🏦') // Bank emoji for deposit
+    .setStyle(ButtonStyle.Success);
+  
+    const howToBuyButton = new ButtonBuilder()
+    .setCustomId('howtobuy_button')
+    .setLabel('How to Buy')
+    .setEmoji('❓') // Question mark emoji for guidance
+    .setStyle(ButtonStyle.Success);
+  
+    const row = new ActionRowBuilder().addComponents(buyButton, setGrowIDButton);
+    const row_2 = new ActionRowBuilder().addComponents(balanceButton, depositButton, howToBuyButton);
+    
     let sentMessage;
-
     if (!message._editedMessage) {
-      // Send the initial stock message
-      sentMessage = await message.channel.send({ embeds: [stockInfoEmbed] });
-      message._editedMessage = sentMessage; // Store the initial message for editing
+      sentMessage = await message.channel.send({ embeds: [stockInfoEmbed], components: [row, row_2] });
+      message._editedMessage = sentMessage;
     } else {
-      // Edit the existing message to update stock information
-      sentMessage = await message._editedMessage.edit({ embeds: [stockInfoEmbed] });
+      sentMessage = await message._editedMessage.edit({ embeds: [stockInfoEmbed], components: [row, row_2] });
     }
 
-    return sentMessage; // Return the sent message object
+    return sentMessage;
   } catch (error) {
     console.error('Error:', error);
-    return null; // Return null in case of an error
+    return null;
   }
 };
 

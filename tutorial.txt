@@ -17,3 +17,6 @@ Fill in the config.json
 
 
 You can get free animated banner here https://auto.creavite.co/animated-banners
+
+-- Add Product :
+Buy, Set GrowID, Balance, Deposit, How To Buy
